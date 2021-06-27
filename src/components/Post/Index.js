@@ -3,35 +3,36 @@ import {View, Text, Image} from 'react-native';
 import styles from './style';
 
 const Post = props => {
+  const post = props.post;
   return (
     <View style={styles.container}>
       {/* Image*/}
       <Image
         style={styles.image}
         source={{
-          uri: 'https://town-n-country-living.com/wp-content/uploads/2019/01/contemporary-living-room.jpg',
+          uri: post.image,
         }}
       />
 
       {/* Bed & Bedroom*/}
-      <Text style={styles.bedroom}>1 bed 1 bedrooms</Text>
+      <Text style={styles.bedroom}>
+        {post.bed} bed {post.bedroom} bedrooms
+      </Text>
 
       {/* Type & Description*/}
       <Text style={styles.description} numberOfLines={2}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
-        beatae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-        veritatis corrupti iure rem sapiente.
+        {post.type}. {post.title}
       </Text>
 
       {/* Old price & new price*/}
       <Text style={styles.prices}>
-        <Text style={styles.oldPrice}>$36 </Text>
-        <Text style={styles.price}> $30 </Text>
+        <Text style={styles.oldPrice}>${post.oldPrice} </Text>
+        <Text style={styles.price}> ${post.newPrice} </Text>
         /night
       </Text>
 
       {/* Total price*/}
-      <Text style={styles.totalPrice}>$230 total</Text>
+      <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
     </View>
   );
 };
