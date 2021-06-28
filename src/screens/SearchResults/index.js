@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, FlatList} from 'react-native';
 import Post from '../../components/Post/Index';
