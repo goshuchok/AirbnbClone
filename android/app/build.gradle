@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.airbnbclone"
+        applicationId "com.android.airbnbclone"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

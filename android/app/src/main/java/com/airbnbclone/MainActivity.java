@@ -1,4 +1,4 @@
-package com.airbnbclone;
+package com.android.airbnbclone;
 
 import com.facebook.react.ReactActivity;
 
