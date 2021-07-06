@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {View, FlatList, useWindowDimensions} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import CustomMarker from '../../components/CustomMarker';
@@ -11,7 +11,17 @@ import places from '../../../assets/data/feed';
 const SearchResultsMap = () => {
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
 
+  const flatlist = useRef();
+
   const width = useWindowDimensions().width;
+
+  useEffect(() => {
+    if (!selectedPlaceId || !flatlist) {
+      return;
+    }
+    const index = places.findIndex(place => place.id === selectedPlaceId);
+    flatlist.current.scrollToIndex({index});
+  }, [selectedPlaceId]);
 
   return (
     <View style={{width: '100%', height: '100%'}}>
@@ -35,6 +45,7 @@ const SearchResultsMap = () => {
       </MapView>
       <View style={{position: 'absolute', bottom: 30}}>
         <FlatList
+          ref={flatlist}
           ItemSeparatorComponent={() => <View style={{width: 16}} />}
           data={places}
           renderItem={({item}) => <PostCarouselItem post={item} />}
