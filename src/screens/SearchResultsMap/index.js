@@ -12,7 +12,7 @@ const SearchResultsMap = () => {
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
 
   const flatlist = useRef();
-  // map
+
   const map = useRef();
 
   const viewConfig = useRef({itemVisiblePercentThreshold: 70});
